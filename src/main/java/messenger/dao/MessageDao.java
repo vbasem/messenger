@@ -8,11 +8,15 @@ import messenger.storage.EntityManager;
 
 public class MessageDao extends AbstractDao<Message>{
 	
+	public MessageDao() {
+		super(Message.class);
+	}
+
 	@Inject
-	EntityManager<Message> em;
+	EntityManager em;
 	
 	@Override
-	public EntityManager<Message> getEntityManager() {
+	public EntityManager getEntityManager() {
 		return em;
 	}
 }

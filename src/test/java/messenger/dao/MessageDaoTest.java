@@ -22,7 +22,7 @@ public class MessageDaoTest {
 		Message msg1 = new Message();
 		msg1.setMessageBody("test");
 		
-		EntityManager<Message> em = Mockito.mock(EntityManager.class);
+		EntityManager em = Mockito.mock(EntityManager.class);
 		dao.em = em;
 		
 		dao.persist(msg1);
@@ -42,8 +42,8 @@ public class MessageDaoTest {
 		msg1.setMessageBody("test");
 		msg2.setMessageBody("test2");
 		
-		EntityManager<Message> em = Mockito.mock(EntityManager.class);
-		Mockito.when(em.findAll()).thenReturn(msgs);
+		EntityManager em = Mockito.mock(EntityManager.class);
+		Mockito.when(em.findAll(Message.class)).thenReturn(msgs);
 		dao.em = em;
 		
 		assertEquals(msgs, dao.fetchAll());

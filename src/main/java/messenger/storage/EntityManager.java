@@ -1,11 +1,12 @@
 package messenger.storage;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface EntityManager<T> {
+public interface EntityManager {
 	
-	public T find(int id);
-	public boolean persist(T model);
-	public List<T> findAll();
+	public <T> T find(Class<T> entityClass, int id);
+	public boolean persist(Serializable model);
+	public <T> List<T> findAll(Class<T> entityClass);
 
 }

@@ -1,7 +1,5 @@
 package messenger.sender;
 
-import org.jboss.weld.environment.se.Weld;
-import org.jboss.weld.environment.se.WeldContainer;
 
 public class SenderMain {
 
