@@ -27,7 +27,7 @@ public class MessengerService {
 	}
 
 	public void saveMessage() {
-		
+		messageDao.persist(message);
 	}
 
 	public List<Message> fetchAllMessages() {
