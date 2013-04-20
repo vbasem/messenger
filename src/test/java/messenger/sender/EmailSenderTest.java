@@ -23,7 +23,7 @@ public class EmailSenderTest {
 		emailSender.send(msg);
 		
 		Mockito.verify(mockLogger, Mockito.times(1)).info(
-				"sending email message to: {0} | from: {1} | message: {2}",
+				"sending email message to: {} | from: {} | message: {}",
 				msg.getMessageReceiver(), 
 				msg.getMessageSender(),
 				msg.getMessageBody());

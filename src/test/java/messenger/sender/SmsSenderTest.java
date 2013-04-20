@@ -27,7 +27,7 @@ public class SmsSenderTest {
 		smsSender.send(message);
 
 		Mockito.verify(logger, Mockito.times(1)).info(
-				"sending sms message to: {0} | from: {1} | message: {2}", 
+				"sending sms message to: {} | from: {} | message: {}", 
 				message.getMessageReceiver(),
 				message.getMessageSender(),
 				message.getMessageBody());

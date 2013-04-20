@@ -2,37 +2,65 @@ package messenger.services;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import messenger.dao.MessageDao;
-import messenger.messege.Message;
-import messenger.sender.Sender;
+import messenger.annotations.*;
+import messenger.dao.*;
+import messenger.messege.*;
+import messenger.sender.*;
 
 @Named
+@RequestScoped
 public class MessengerService {
-	
-	@Inject
-	Sender sender;
-	
-	@Inject
-	Message message;
-	
-	@Inject
-	MessageDao messageDao;
-	
-	
-	public void send() {
-		sender.send(message);
-	}
 
-	public void saveMessage() {
-		messageDao.persist(message);
-	}
+    private SenderTypes senderType = SenderTypes.SMS;
+    
+    @Inject
+    @RequestScoped
+    @Chosen
+    Sender sender;
+    
+    @Inject
+    MessageDao messageDao;
+    Message message;
 
-	public List<Message> fetchAllMessages() {
-		return messageDao.fetchAll();
-	}
+    public Message getMessage() {
+        return message;
+    }
 
-	
+    @PostConstruct
+    public void init() {
+        message = new Message();
+    }
+    
+    public SenderTypes[] getSenderTypes() {
+    
+        return SenderTypes.values();
+    }
+
+    public void send() {
+        sender.send(message);
+        saveMessage();
+    }
+
+    public void saveMessage() {
+        messageDao.persist(message);
+    }
+
+    public List<Message> fetchAllMessages() {
+        return messageDao.fetchAll();
+    }
+
+    @Produces
+    public SenderTypes getSenderType() {
+        return senderType;
+    }
+
+    public void setSenderType(SenderTypes senderType) {
+        this.senderType = senderType;
+    }
 }

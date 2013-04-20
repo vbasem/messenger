@@ -4,10 +4,24 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 
-	<h:head>
-	</h:head>
-	<h:body>
-		<p>hi</p>
-              #{messangerService.start()}
-	</h:body>
+    <h:head>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel>Type</h:outputLabel>
+                <h:selectOneMenu value="#{messengerService.senderType}">
+                    <f:selectItems value="#{messengerService.senderTypes}" />
+                </h:selectOneMenu>
+                <h:outputLabel>From</h:outputLabel>
+                <h:inputText value="#{messengerService.message.messageSender}" />
+                <h:outputLabel>To</h:outputLabel>
+                <h:inputText value="#{messengerService.message.messageReceiver}" />
+                <h:outputLabel>Message</h:outputLabel>
+                <h:inputText value="#{messengerService.message.messageBody}" />
+                <h:outputLabel></h:outputLabel>
+                <h:commandButton value="send" action="#{messengerService.send}" />
+            </h:panelGrid>
+        </h:form>
+    </h:body>
 </html>

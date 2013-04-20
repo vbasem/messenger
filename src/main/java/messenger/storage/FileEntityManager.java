@@ -14,7 +14,7 @@ import java.util.List;
 
 public class FileEntityManager implements EntityManager {
 
-	private static final String DEFAULT_STORAGE = "storage_file";
+	private static final String DEFAULT_STORAGE = "C:\\Users\\Home\\storage_file";
 	
 	Path storage;
 

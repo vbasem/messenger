@@ -5,7 +5,7 @@ import java.util.List;
 
 import messenger.dao.AbstractDao;
 import messenger.dao.MessageDao;
-import messenger.messege.Message;
+import messenger.messege.*;
 import messenger.sender.Sender;
 import messenger.services.MessengerService;
 import messenger.storage.EntityManager;
