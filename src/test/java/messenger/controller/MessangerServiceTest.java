@@ -1,4 +1,4 @@
-package messenger.services;
+package messenger.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import messenger.dao.AbstractDao;
 import messenger.dao.MessageDao;
 import messenger.messege.*;
 import messenger.sender.Sender;
-import messenger.services.MessengerService;
+import messenger.controller.Messenger;
 import messenger.storage.EntityManager;
 
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class MessangerServiceTest {
 	
 	@Test
 	public void testSending() {
-		MessengerService msgService = new MessengerService();
+		Messenger msgService = new Messenger();
 		Message msgMock = Mockito.mock(Message.class);
 		Sender senderMock = Mockito.mock(Sender.class);
 		msgService.message = msgMock;
@@ -32,7 +32,7 @@ public class MessangerServiceTest {
 	
 	@Test
 	public void testSaving() {
-		MessengerService messengerService = new MessengerService();
+		Messenger messengerService = new Messenger();
 		Message message = new Message();
 		MessageDao mockDao = Mockito.mock(MessageDao.class);
 		
@@ -46,7 +46,7 @@ public class MessangerServiceTest {
 	
 	@Test
 	public void listAllMessages() {
-		MessengerService msgService = new MessengerService();
+		Messenger msgService = new Messenger();
 
 		Message msg1 = new Message();
 		Message msg2 = new Message();

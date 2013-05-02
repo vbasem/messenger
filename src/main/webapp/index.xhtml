@@ -10,17 +10,17 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel>Type</h:outputLabel>
-                <h:selectOneMenu value="#{messengerService.senderType}">
-                    <f:selectItems value="#{messengerService.senderTypes}" />
+                <h:selectOneMenu value="#{messenger.senderType}">
+                    <f:selectItems value="#{messenger.senderTypes}" />
                 </h:selectOneMenu>
                 <h:outputLabel>From</h:outputLabel>
-                <h:inputText value="#{messengerService.message.messageSender}" />
+                <h:inputText value="#{messenger.message.messageSender}" />
                 <h:outputLabel>To</h:outputLabel>
-                <h:inputText value="#{messengerService.message.messageReceiver}" />
+                <h:inputText value="#{messenger.message.messageReceiver}" />
                 <h:outputLabel>Message</h:outputLabel>
-                <h:inputText value="#{messengerService.message.messageBody}" />
+                <h:inputText value="#{messenger.message.messageBody}" />
                 <h:outputLabel></h:outputLabel>
-                <h:commandButton value="send" action="#{messengerService.send}" />
+                <h:commandButton value="send" action="#{messenger.send}" />
             </h:panelGrid>
         </h:form>
     </h:body>

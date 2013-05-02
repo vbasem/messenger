@@ -1,4 +1,4 @@
-package messenger.services;
+package messenger.controller;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import messenger.sender.*;
 
 @Named
 @RequestScoped
-public class MessengerService {
+public class Messenger {
 
     private SenderTypes senderType = SenderTypes.SMS;
     
@@ -26,6 +26,7 @@ public class MessengerService {
     
     @Inject
     MessageDao messageDao;
+    
     Message message;
 
     public Message getMessage() {
