@@ -12,6 +12,6 @@
 
     
     <welcome-file-list>
-        <welcome-file>index.jsf</welcome-file>
+        <welcome-file>messages/index.jsf</welcome-file>
     </welcome-file-list>
 </web-app>

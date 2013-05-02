@@ -3,6 +3,7 @@ package messenger.controller;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -45,10 +46,6 @@ public class Messenger {
 
     public void send() {
         sender.send(message);
-        saveMessage();
-    }
-
-    public void saveMessage() {
         messageDao.persist(message);
     }
 

@@ -15,33 +15,21 @@ import org.mockito.Mockito;
 import static org.junit.Assert.*;
 
 
-public class MessangerServiceTest {
+public class MessangerTest {
 	
 	@Test
 	public void testSending() {
 		Messenger msgService = new Messenger();
 		Message msgMock = Mockito.mock(Message.class);
 		Sender senderMock = Mockito.mock(Sender.class);
+		MessageDao daoMock = Mockito.mock(MessageDao.class);
+		msgService.messageDao = daoMock;
 		msgService.message = msgMock;
 		msgService.sender = senderMock;
 		
 		msgService.send();
 		
 		Mockito.verify(senderMock, Mockito.times(1)).send(msgMock);
-	}
-	
-	@Test
-	public void testSaving() {
-		Messenger messengerService = new Messenger();
-		Message message = new Message();
-		MessageDao mockDao = Mockito.mock(MessageDao.class);
-		
-		messengerService.messageDao = mockDao;
-		messengerService.message = message;
-		
-		messengerService.saveMessage();
-		
-		Mockito.verify(mockDao).persist(message);
 	}
 	
 	@Test
