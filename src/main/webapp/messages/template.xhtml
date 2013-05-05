@@ -5,11 +5,16 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <ui:insert name="title"></ui:insert>
+        <h:outputScript library="js" name="bootstrap/js/bootstrap.js" />
     </h:head>
     <h:body>
         <ui:insert name="body"></ui:insert>
         <br/>
         <h:link value="HOME" outcome="index"/>
+        <br/>
+        <br/>
+        <p>#{messageStatistic.getCounter("SMS")} SMS messages sent</p>
+        <p>#{messageStatistic.getCounter("EMAIL")} EMAIL messages sent</p>
     </h:body>
 </html>
 

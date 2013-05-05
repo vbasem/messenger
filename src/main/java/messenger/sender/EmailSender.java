@@ -2,11 +2,9 @@ package messenger.sender;
 
 import javax.inject.Inject;
 
-import org.slf4j.Logger;
 
-import messenger.annotations.Chosen;
-import messenger.annotations.SenderTypes;
 import messenger.messege.Message;
+import org.slf4j.Logger;
 
 public class EmailSender implements Sender {
 
